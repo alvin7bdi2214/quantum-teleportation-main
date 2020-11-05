@@ -1,15 +1,18 @@
 import random
-sample_letters = 'abcd'
+def randomnumbers():
+    r = 0
+    r = random.randrange(0,5)
+    return r
 
-iter = 0
-tmplist2 = []
+abc = ["a", "b", "c", "d", "e"]
 
+List = []
 while True:
-    attempt = random.choice(sample_letters)
-    tmplist2.append(attempt)
-
-    if tmplist2[iter] == "b":
+    rand_number = randomnumbers()
+    List.append(abc[rand_number])
+    if rand_number <3:
         break
-    else:
-        pass
-print(tmplist2)
+
+
+for i in List:
+    print (i)
