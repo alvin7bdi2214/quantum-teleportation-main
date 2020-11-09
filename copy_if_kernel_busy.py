@@ -73,10 +73,11 @@ def eval(alice, epr):
         return 0
 
 for_bob = []
+t=0
 
-while n <= 8:
-    rand_key(n)
+while t <= n:
+    rand_key(t)
     find_epr_state()
     e1 = eval(str1, find_epr_state())
-    for_bob.append(e1)
+for_bob.append(e1)
 print(for_bob)
