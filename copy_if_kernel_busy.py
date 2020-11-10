@@ -15,16 +15,14 @@ for i in range(p):
 	temp = str(random.randint(0,1)) 
 	key1 += temp 
 
-    while True:
-        attempt = random.choice(sample_letters)
-        tmplist2.append(attempt)
+while True:
+    attempt = random.choice(sample_letters)
+    tmplist2.append(attempt)
 
-        if attempt == "b":
-            break
+    if attempt == "b":
+        break
 
-        count += 1
-
-    return tmplist2
+    count += 1
 
 #evaluate result of alice binary and bell state
 def eval(alice, epr):
@@ -50,5 +48,4 @@ for k in enumerate(key1):
 		e = eval(k,t)
 		for_bob.append(e)
 	count1 += 1
-return for_bob
-print(for_bob)
+for_bob
