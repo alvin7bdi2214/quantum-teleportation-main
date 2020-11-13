@@ -36,12 +36,18 @@ def eva(alice, bell):
 
 
 for_bob = [] #list of generated binary and bell state through logic gate
+_tmp = tmplist2[:]
 
 for k in key1:
-    for t in tmplist2:
-        
-        e = eva(k, t)
-        for_bob.append(e)
+    while _tmp:
+        if _tmp[:1] != ['b']:
+            for_bob.append(eva(k, *_tmp[:1]))
+            _tmp = _tmp[1:]
+        else:
+            for_bob.append(eva(k, *_tmp[:1]))
+            _tmp = _tmp[1:]
+            break
+
 
 #tr = [[eva(k,t) for t in tmplist2] for k in key1] #list comprehension split the key properly
 print("generated random binary strings:", key1)
