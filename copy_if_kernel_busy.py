@@ -1,10 +1,9 @@
 import random
 import numpy as np
 from operator import itemgetter
+import sys
 
 equal_to = {"a":"u_plus", "b":"u_minus", "c":"v_plus", "d":"v_minus"} #bell state
-count = 0 #count until b is found
-count1 = 0 #count for nested loop
 
 p = 8 #length of generated binary
 
@@ -22,8 +21,6 @@ for i in range(p):
         if attempt == 'b':
             break
 
-        count += 1
-
 #evaluate result of alice binary and bell state
 def eva(alice, bell):
     if alice == 1:
@@ -37,22 +34,21 @@ def eva(alice, bell):
         elif bell == 'a' or bell == 'b':
             return 0
 
+
 for_bob = [] #list of generated binary and bell state through logic gate
+
 for k in key1:
-	for t in tmplist2:
-		e = eva(k, t)
-		for_bob.append(e)
+    for t in tmplist2:
+        
+        e = eva(k, t)
+        for_bob.append(e)
 
 #tr = [[eva(k,t) for t in tmplist2] for k in key1] #list comprehension split the key properly
 print("generated random binary strings:", key1)
 print("generated bell states:", tmplist2)
 print("encrypted strings:", for_bob)
 
-def main():
-    f = open("for_bob.txt", "w+")
-
-    f.close()
-
-if __name__ == "__main__":
-    pass
-
+with open('for_bob.txt', 'w') as f:
+    print("generated random binary strings:\n", key1, file=f)
+    print("generated bell states:\n", tmplist2, file=f)
+    print("encrypted strings:\n", for_bob, file=f)
