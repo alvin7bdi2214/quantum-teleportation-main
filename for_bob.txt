@@ -1,6 +1,6 @@
-generated random binary strings:
- [0, 0, 0, 0, 0, 1, 0, 0]
-generated bell states:
- ['d', 'd', 'a', 'd', 'd', 'd', 'b', 'b', 'a', 'b', 'a', 'd', 'c', 'd', 'b', 'd', 'b', 'a', 'b', 'a', 'c', 'b', 'c', 'b']
+random binary strings:
+ [0, 0, 0, 0, 0, 1, 1, 1]
+random bell states:
+ ['a', 'd', 'd', 'd', 'EPR', 'EPR', 'c', 'd', 'd', 'a', 'd', 'd', 'EPR', 'd', 'a', 'EPR', 'd', 'd', 'a', 'a', 'EPR', 'd', 'a', 'a', 'c', 'a', 'EPR', 'c', 'EPR', 'c', 'c', 'EPR']
 encrypted strings:
- [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0]
+ [0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1]
