@@ -2,3 +2,9 @@ remote -> local
 ----------------
 $ git fetch
 $ git reset --hard origin/master
+
+local -> remote (add new file)
+-----------------
+$ git add <file>
+$ git commit -m <message>
+$ git push origin/master

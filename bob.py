@@ -1,5 +1,5 @@
-file1 = open('for_bob.txt', 'r')
-
+forbob = open('for_bob.txt', 'r')
+forbob.readline()
 
 
 file1.close()
