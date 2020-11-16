@@ -53,6 +53,6 @@ print("bell states:", tmplist2)
 print("encrypted strings:", for_bob)
 
 with open('for_bob.txt', 'w') as f:
-    print("random binary strings:\n", key1, file=f)
-    print("random bell states ({} characters):\n{}".format(len(tmplist2), tmplist2), file=f)
-    print("encrypted strings ({} characters):\n{}".format(len(for_bob), for_bob), file=f)
+    print("random binary strings:\n{}\n".format(key1), file=f)
+    print("random bell states ({} characters):\n{}\n".format(len(tmplist2), tmplist2), file=f)
+    print("encrypted strings ({} characters):\n{}\n".format(len(for_bob), for_bob), file=f)

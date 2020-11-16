@@ -1,12 +1,23 @@
-<<<<<<< HEAD
+import functools
+
 forbob = open('for_bob.txt', 'r')
-forbob.readline()
+forbob.readlines()[4]
+forbob.close()
 
+forbob = open('for_bob.txt', 'r')
+forbob.readlines()[7]
+forbob.close()
 
-=======
-file1 = open('for_bob.txt', 'r')
+def get_epr_ele():
+    forbob = open('for_bob.txt', 'r')
 
+    for f in forbob.readlines()[4]:
+        
 
+        where_epr = f.index('EPR')
+        print(where_epr)
 
->>>>>>> 83810971e70d04b14d693214981aa61bfc60d8f2
-file1.close()
+        forbob.close()
+    return f
+
+get_epr_ele()
