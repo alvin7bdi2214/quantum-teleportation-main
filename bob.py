@@ -1,23 +1,14 @@
-import functools
+from copy_if_kernel_busy import tmplist2, for_bob
+from operator import itemgetter
 
-forbob = open('for_bob.txt', 'r')
-forbob.readlines()[4]
-forbob.close()
+epr_out = [idx for idx, element in enumerate(tmplist2) if element == 'EPR']
+print(epr_out)
 
-forbob = open('for_bob.txt', 'r')
-forbob.readlines()[7]
-forbob.close()
+print(list(itemgetter(*epr_out)(for_bob)))
 
-def get_epr_ele():
-    forbob = open('for_bob.txt', 'r')
-
-    for f in forbob.readlines()[4]:
-        
-
-        where_epr = f.index('EPR')
-        print(where_epr)
-
-        forbob.close()
-    return f
-
-get_epr_ele()
+#for a more flexible approach
+class Flexlist(list):
+    def __getitem__(self, keys):
+        if isinstance(keys, (int, slice)):
+            return list.__getitem__(self, keys)
+        return [self[k] for k in keys]
