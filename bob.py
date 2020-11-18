@@ -6,9 +6,12 @@ print(epr_out)
 
 print(list(itemgetter(*epr_out)(for_bob)))
 
-#for a more flexible approach
-class Flexlist(list):
-    def __getitem__(self, keys):
-        if isinstance(keys, (int, slice)):
-            return list.__getitem__(self, keys)
-        return [self[k] for k in keys]
+# class Flexlist(list):
+#     def __getitem__(self, keys):
+#         if isinstance(keys, (int, slice)):
+#             return list.__getitem__(self, keys)
+#         return [self[k] for k in keys]
+
+from PIL import Image
+import numpy
+
