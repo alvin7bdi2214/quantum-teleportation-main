@@ -1,7 +1,6 @@
 import random
-import numpy as np
 
-equal_to = {"a":"u_plus", "EPR":"u_minus", "c":"v_plus", "d":"v_minus"} #bell state
+equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #bell state
 
 p = 8 #length of generated binary
 
@@ -22,14 +21,14 @@ for i in range(p):
 #evaluate result of alice binary and bell state
 def eva(alice, bell):
     if alice == 1:
-        if bell == 'a' or bell == 'EPR':
+        if bell == 'upl' or bell == 'EPR':
             return 1
-        elif bell == 'c' or bell == 'd':
+        elif bell == 'vpl' or bell == 'vmin':
             return 0
     elif alice == 0:
-        if bell == 'c' or bell == 'd':
+        if bell == 'vpl' or bell == 'vmin':
             return 1
-        elif bell == 'a' or bell == 'EPR':
+        elif bell == 'upl' or bell == 'EPR':
             return 0
 
 
@@ -46,11 +45,10 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
-
-#tr = [[eva(k,t) for t in tmplist2] for k in key1] #list comprehension split the key properly
-print("random binary strings:", key1)
-print("bell states:", tmplist2)
-print("encrypted strings:", for_bob)
+if __name__ == "__main__":
+    print("random binary strings:", key1)
+    print("bell states:", tmplist2)
+    print("encrypted strings:", for_bob)
 
 with open('for_bob.txt', 'w') as f:
     print("random binary strings:\n{}\n".format(key1), file=f)
