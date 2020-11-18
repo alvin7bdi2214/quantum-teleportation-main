@@ -1,9 +1,9 @@
 random binary strings:
-[1, 1, 1, 1, 1, 0, 0, 1]
+[1, 0, 1, 1, 1, 1, 0, 1]
 
-random bell states (36 characters):
-['a', 'a', 'EPR', 'd', 'EPR', 'd', 'd', 'c', 'c', 'c', 'd', 'd', 'd', 'c', 'c', 'd', 'EPR', 'a', 'EPR', 'c', 'a', 'a', 'c', 'd', 'd', 'EPR', 'd', 'a', 'EPR', 'c', 'd', 'd', 'c', 'c', 'EPR', 'EPR']
+random bell states (16 characters):
+['EPR', 'EPR', 'vmin', 'EPR', 'vpl', 'vmin', 'EPR', 'EPR', 'EPR', 'vpl', 'EPR', 'vpl', 'vmin', 'vmin', 'vmin', 'EPR']
 
-encrypted strings (36 characters):
-[1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1]
+encrypted strings (16 characters):
+[1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1]
 
