@@ -1,4 +1,5 @@
 import random
+from PIL import Image
 
 equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #bell state
 
@@ -9,11 +10,11 @@ for i in range(p):
 	temp = random.randint(0,1)
 	key1.append(temp) 
 
-tmplist2 = [] #list of random sample_letters
+bell_state = [] #list of random sample_letters
 for i in range(p):
     while True:
         attempt = str(random.choice(list(equal_to)))
-        tmplist2.append(attempt)
+        bell_state.append(attempt)
 
         if attempt == 'EPR':
             break
@@ -33,7 +34,7 @@ def eva(alice, bell):
 
 
 for_bob = [] #list of generated binary and bell state through logic gate
-_tmp = tmplist2[:]
+_tmp = bell_state[:]
 
 for k in key1:
     while _tmp:
@@ -47,10 +48,10 @@ for k in key1:
 
 if __name__ == "__main__":
     print("random binary strings:", key1)
-    print("bell states:", tmplist2)
+    print("bell states:", bell_state)
     print("encrypted strings:", for_bob)
 
 with open('for_bob.txt', 'w') as f:
     print("random binary strings:\n{}\n".format(key1), file=f)
-    print("random bell states ({} characters):\n{}\n".format(len(tmplist2), tmplist2), file=f)
-    print("encrypted strings ({} characters):\n{}\n".format(len(for_bob), for_bob), file=f)
+    print("random bell states ({:,} characters):\n{}\n".format(len(bell_state), bell_state), file=f)
+    print("encrypted strings ({:,} characters):\n{}\n".format(len(for_bob), for_bob), file=f)

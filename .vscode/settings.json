@@ -1,4 +1,7 @@
 {
-    "python.pythonPath": "C:\\Users\\makino\\Anaconda3\\python.exe",
-    "jupyter.jupyterServerType": "local"
+    "python.pythonPath": "C:\\Users\\pinok\\anaconda3\\python.exe",
+    "jupyter.jupyterServerType": "local",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.logging.level": "debug"
 }
