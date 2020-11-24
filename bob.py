@@ -1,4 +1,4 @@
-from copy_if_kernel_busy import bell_state, for_bob
+from alice import bell_state, for_bob
 from operator import itemgetter
 import math
 
@@ -22,22 +22,16 @@ im = Image.open("lena_bw.pbm")
 # def cartesian_prod(cx,cy):
 #     for ix, iy in itertools.product((range(cx), range(cy)))
 
-  
-g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
 cnv = lambda c: math.trunc(c/255)
-for coord in g:
-    c = im.getpixel((coord))
-    cnv(c)
 
+g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
+lg = list(g)
+lg_px = [im.getpixel((l)) for l in lg]
+lg_px_01 = [cnv(lg) for lg in lg_px]
 
-for i in range(im.size[0]*im.size[1]):
-    found = False
-    while found == False:
-        x = random.choice(list(equal_to))
-        # print(x)
-
-        if x == 'EPR':
-            found = True
+# for coord in g:
+#     c = im.getpixel((coord))
+#     cnv(c)
 
 #track memory usage
 import psutil
