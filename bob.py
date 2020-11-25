@@ -1,10 +1,10 @@
-from alice import bell_state, for_bob
+# from alice import bell_state, for_bob
 from operator import itemgetter
 import math
 
-epr_idx = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
+# epr_idx = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
 
-res = list(itemgetter(*epr_idx)(for_bob))
+# endResult = list(itemgetter(*epr_idx)(for_bob))
 
 
 # class Flexlist(list):
@@ -33,6 +33,10 @@ lg_px_01 = [cnv(lg) for lg in lg_px]
 # for coord in g:
 #     c = im.getpixel((coord))
 #     cnv(c)
+
+
+set_encrImPx = lambda p: round(math.sqrt(p))
+newSize = (set_encrImPx(im.size[0]), set_encrImPx(im.size[1]))
 
 #track memory usage
 import psutil

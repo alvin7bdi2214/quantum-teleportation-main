@@ -7,7 +7,6 @@ equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #
 im = Image.open("lena256_bw.pbm")
 p = im.size[0]*im.size[1] #length of generated binary
 
-
 cnv = lambda c: math.trunc(c/255)
 
 g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
@@ -16,10 +15,10 @@ lg_px = [im.getpixel((l)) for l in lg]
 key1 = [cnv(lg) for lg in lg_px]
 
 
-key1 = [] #list of generated binary 
-for i in range(p): 
-	temp = random.randint(0,1)
-	key1.append(temp) 
+# key1 = [] #list of generated binary 
+# for i in range(p): 
+# 	temp = random.randint(0,1)
+# 	key1.append(temp) 
 
 bell_state = [] #list of random sample_letters
 for i in range(p):
@@ -70,16 +69,14 @@ if __name__ == "__main__":
     print("bell states:", bell_state)
     print("encrypted strings:", for_bob)
 
-with open('for_bob.txt', 'w') as f:
-    print("random binary strings:\n{}\n".format(key1), file=f)
-    print("random bell states ({:,} characters):\n{}\n".format(len(bell_state), bell_state), file=f)
+    with open('for_bob.txt', 'w') as f:
+        print("random binary strings:\n{}\n".format(key1), file=f)
+        print("random bell states ({:,} characters):\n{}\n".format(len(bell_state), bell_state), file=f)
 
-WINDOWS_LINE_ENDING = b'\r\n'
-UNIX_LINE_ENDING = b'\n'
+    WINDOWS_LINE_ENDING = b'\r\n'
+    UNIX_LINE_ENDING = b'\n'
 
-set_encrImPx = lambda p: round(math.sqrt(p))
 
-with open('bob_encrIMG.pbm', 'wb') as f:
-    f.replace(WINDOWS_LINE_ENDING, UNIX_LINE_ENDING)
-    f.write('P4\n256\n256\n')
-    f.write("encrypted strings ({:,} characters):\n{}\n".format(len(for_bob), for_bob), file=f)
+    with open('bob_encrIMG.pbm', 'wb') as f:
+        f.write('P4\n256\n256\n')
+        f.write("encrypted strings ({:,} characters):\n{}\n".format(len(for_bob), for_bob), file=f)
