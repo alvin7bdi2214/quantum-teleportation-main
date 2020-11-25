@@ -6,6 +6,7 @@ epr_idx = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
 
 res = list(itemgetter(*epr_idx)(for_bob))
 
+
 # class Flexlist(list):
 #     def __getitem__(self, keys):
 #         if isinstance(keys, (int, slice)):
@@ -14,7 +15,7 @@ res = list(itemgetter(*epr_idx)(for_bob))
 
 from PIL import Image
 import random
-im = Image.open("lena_bw.pbm")
+im = Image.open("lena256_bw.pbm")
 # print(im.format, im.size, im.mode)
 
 #using cartesian product to generate all coordinates
