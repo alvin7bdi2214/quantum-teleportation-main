@@ -64,6 +64,21 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
+def chunkIt(seq, num): #function to transform list as num times nested list
+    avg = len(seq) / float(num)
+    out = []
+    last = 0.0
+
+    while last < len(seq):
+        out.append(seq[int(last):int(last + avg)])
+        last += avg
+
+    return out
+
+set_encrImPx = lambda p: round(math.sqrt(p))
+
+n = chunkIt(for_bob, set_encrImPx(len(for_bob)))
+
 if __name__ == "__main__":
     print("random binary strings:", key1)
     print("bell states:", bell_state)
@@ -73,10 +88,19 @@ if __name__ == "__main__":
         print("random binary strings:\n{}\n".format(key1), file=f)
         print("random bell states ({:,} characters):\n{}\n".format(len(bell_state), bell_state), file=f)
 
-    WINDOWS_LINE_ENDING = b'\r\n'
-    UNIX_LINE_ENDING = b'\n'
+    with open('bob_encrIMG.pbm', 'w') as f:
+        f.write(f'P4\n{set_encrImPx(len(for_bob))}\n{set_encrImPx(len(for_bob))}\n')
+        for xs in n:
+            f.write(" ".join(map(str, xs)) + '\n')
 
+#windows clrf to unix lf
+import string
+def formatFile(templatePath, filledFilePath, params, target):
+    openingMode = 'w'
+    if target == 'linux':
+        openingMode += 'b'
 
-    with open('bob_encrIMG.pbm', 'wb') as f:
-        f.write('P4\n256\n256\n')
-        f.write("encrypted strings ({:,} characters):\n{}\n".format(len(for_bob), for_bob), file=f)
+    with open(templatePath, 'r') as infile, open(filledFilePath, openingMode) as outfile:
+        for line in infile:
+            template = string.Template(line.decode('UTF-8'))
+            outfile.write(template.substitute(**params).encode('UTF-8'))
