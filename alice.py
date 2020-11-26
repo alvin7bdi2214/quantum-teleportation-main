@@ -4,7 +4,9 @@ import math
 
 equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #bell state
 
-im = Image.open("lena256_bw.pbm")
+file_path = r"lena256_bw.pbm"
+
+im = Image.open(file_path)
 p = im.size[0]*im.size[1] #length of generated binary
 
 cnv = lambda c: math.trunc(c/255)
@@ -94,13 +96,13 @@ if __name__ == "__main__":
             f.write(" ".join(map(str, xs)) + '\n')
 
 #windows clrf to unix lf
-import string
-def formatFile(templatePath, filledFilePath, params, target):
-    openingMode = 'w'
-    if target == 'linux':
-        openingMode += 'b'
+windows_line_ending = b'\r\n'
+linux_line_ending = b'\n'
 
-    with open(templatePath, 'r') as infile, open(filledFilePath, openingMode) as outfile:
-        for line in infile:
-            template = string.Template(line.decode('UTF-8'))
-            outfile.write(template.substitute(**params).encode('UTF-8'))
+with open('bob_encrIMG.pbm', 'rb') as open_file:
+    content = open_file.read()
+
+content = content.replace(windows_line_ending, linux_line_ending)
+
+with open('bob_encrIMG.pbm', 'wb') as open_file:
+    open_file.write(content)
