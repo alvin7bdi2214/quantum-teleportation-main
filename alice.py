@@ -66,20 +66,20 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
-def chunkIt(seq, num): #function to transform list as num times nested list
-    avg = len(seq) / float(num)
-    out = []
-    last = 0.0
+# def chunkIt(seq, num): #function to transform list as num times nested list
+#     avg = len(seq) / float(num)
+#     out = []
+#     last = 0.0
 
-    while last < len(seq):
-        out.append(seq[int(last):int(last + avg)])
-        last += avg
+#     while last < len(seq):
+#         out.append(seq[int(last):int(last + avg)])
+#         last += avg
 
-    return out
+#     return out
 
 set_encrImPx = lambda p: round(math.sqrt(p))
 
-n = chunkIt(for_bob, set_encrImPx(len(for_bob)))
+# n = chunkIt(for_bob, set_encrImPx(len(for_bob)))
 
 if __name__ == "__main__":
     print("random binary strings:", key1)
@@ -92,8 +92,9 @@ if __name__ == "__main__":
 
     with open('bob_encrIMG.pbm', 'w') as f:
         f.write(f'P4\n{set_encrImPx(len(for_bob))}\n{set_encrImPx(len(for_bob))}\n')
-        for xs in n:
-            f.write(" ".join(map(str, xs)) + '\n')
+        # for xs in n:
+        #     f.write(" ".join(map(str, xs)) + '\n')
+        print(for_bob, file=f)
 
 #windows clrf to unix lf
 windows_line_ending = b'\r\n'
