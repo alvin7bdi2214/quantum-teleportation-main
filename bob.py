@@ -2,26 +2,17 @@ from alice import bell_state, for_bob
 from operator import itemgetter
 import math
 
-epr_idx = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
-print(epr_idx)
+idxWhereEPR = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
 
-endResult = list(itemgetter(*epr_idx)(for_bob))
+finalResult = list(itemgetter(*epr_idx)(for_bob))
 
 from PIL import Image
 import random
-im = Image.open("bob_encrIMG.pbm")
+
+file_name = r"encryptedIMG.pbm"
+
+im = Image.open(file_name)
 # print(im.format, im.size, im.mode)
-
-#using cartesian product to generate all coordinates
-# import itertools
-# def cartesian_prod(cx,cy):
-#     for ix, iy in itertools.product((range(cx), range(cy)))
-
-
-# g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
-# for coord in g:
-#     c = im.getpixel((coord))
-#     cnv(c)
 
 #track memory usage
 # import psutil
