@@ -7,14 +7,18 @@ equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #
 file_path = r"lena256_bw.pbm"
 
 im = Image.open(file_path)
-p = im.size[0]*im.size[1] #length of generated binary
+imList = list(im.getdata(band=None))
 
-cnv = lambda c: math.trunc(c/255)
+p = len(imList) #length of generated binary
 
-g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
-lg = list(g)
-lg_px = [im.getpixel((l)) for l in lg]
-key1 = [cnv(lg) for lg in lg_px]
+cnv = lambda c: math.trunc(c/255) #convert 0 and 255 to 0 and 1
+
+key1 = list(map(cnv, imList))
+
+# g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
+# lg = list(g)
+# lg_px = [im.getpixel((l)) for l in lg]
+# key1 = [cnv(lg) for lg in lg_px]
 
 
 # key1 = [] #list of generated binary 
@@ -66,6 +70,18 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
+def list_rect(li, dim1, dim2):
+    i=0
+    for line in range(dim2):
+        for col in range(dim1):
+            if i<len(li):
+                print(li[i],end=' ')
+                i+=1
+            else:
+                i=0
+                print(li[i],end=' ')
+        print()
+
 # def chunkIt(seq, num): #function to transform list as num times nested list
 #     avg = len(seq) / float(num)
 #     out = []
@@ -88,22 +104,21 @@ if __name__ == "__main__":
 
     with open('for_bob.txt', 'w') as f:
         print("random binary strings:\n{}\n".format(key1), file=f)
-        print("random bell states ({:,} characters):\n{}\n".format(len(bell_state), bell_state), file=f)
+    
+    with open('key.txt', 'w') as f:
+        print("random bell states ({:,} characters):\n".format(len(bell_state)), file=f)
+        for k,v in enumerate(bell_state):
+            print(k, v, file=f)
+        
 
-    with open('bob_encrIMG.pbm', 'w') as f:
+    with open('encryptedIMG.pbm', 'w') as f:
         f.write(f'P4\n{set_encrImPx(len(for_bob))}\n{set_encrImPx(len(for_bob))}\n')
-        # for xs in n:
-        #     f.write(" ".join(map(str, xs)) + '\n')
-        print(for_bob, file=f)
-
-#windows clrf to unix lf
-windows_line_ending = b'\r\n'
-linux_line_ending = b'\n'
-
-with open('bob_encrIMG.pbm', 'rb') as open_file:
-    content = open_file.read()
-
-content = content.replace(windows_line_ending, linux_line_ending)
-
-with open('bob_encrIMG.pbm', 'wb') as open_file:
-    open_file.write(content)
+        for line in range(set_encrImPx(len(for_bob))):
+            for col in range(set_encrImPx(len(for_bob))):
+                if i < len(for_bob):
+                    print(for_bob[i], end=' ', file=f)
+                    i+=1
+                else:
+                    i=0
+                    print(for_bob[i], end=' ', file=f)
+            print(file=f)
