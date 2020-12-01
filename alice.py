@@ -70,17 +70,17 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
-def list_rect(li, dim1, dim2):
-    i=0
-    for line in range(dim2):
-        for col in range(dim1):
-            if i<len(li):
-                print(li[i],end=' ')
-                i+=1
-            else:
-                i=0
-                print(li[i],end=' ')
-        print()
+# def list_rect(li, dim1, dim2):
+#     i=0
+#     for line in range(dim2):
+#         for col in range(dim1):
+#             if i<len(li):
+#                 print(li[i],end=' ')
+#                 i+=1
+#             else:
+#                 i=0
+#                 print(li[i],end=' ')
+#         print()
 
 # def chunkIt(seq, num): #function to transform list as num times nested list
 #     avg = len(seq) / float(num)
@@ -94,6 +94,7 @@ def list_rect(li, dim1, dim2):
 #     return out
 
 set_encrImPx = lambda p: round(math.sqrt(p))
+newLen = set_encrImPx(len(for_bob))
 
 # n = chunkIt(for_bob, set_encrImPx(len(for_bob)))
 
@@ -112,9 +113,9 @@ if __name__ == "__main__":
         
 
     with open('encryptedIMG.pbm', 'w') as f:
-        f.write(f'P4\n{set_encrImPx(len(for_bob))}\n{set_encrImPx(len(for_bob))}\n')
-        for line in range(set_encrImPx(len(for_bob))):
-            for col in range(set_encrImPx(len(for_bob))):
+        f.write(f'P4\n{newLen}\n{newLen}\n')
+        for line in range(newLen):
+            for col in range(newLen):
                 if i < len(for_bob):
                     print(for_bob[i], end=' ', file=f)
                     i+=1
