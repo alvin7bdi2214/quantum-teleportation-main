@@ -96,30 +96,28 @@ for k in key1:
 set_encrImPx = lambda p: round(math.sqrt(p))
 newLen = set_encrImPx(len(for_bob))
 
-# n = chunkIt(for_bob, set_encrImPx(len(for_bob)))
 
-if __name__ == "__main__":
-    print("random binary strings:", key1)
-    print("bell states:", bell_state)
-    print("encrypted strings:", for_bob)
+print("random binary strings:", key1)
+print("bell states:", bell_state)
+print("encrypted strings:", for_bob)
 
-    with open('for_bob.txt', 'w') as f:
-        print("random binary strings:\n{}\n".format(key1), file=f)
+with open('for_bob.txt', 'w') as f:
+    print("random binary strings:\n{}\n".format(key1), file=f)
+
+with open('key.txt', 'w') as f:
+    print("random bell states ({:,} characters):\n".format(len(bell_state)), file=f)
+    for k,v in enumerate(bell_state):
+        print(k, v, file=f)
     
-    with open('key.txt', 'w') as f:
-        print("random bell states ({:,} characters):\n".format(len(bell_state)), file=f)
-        for k,v in enumerate(bell_state):
-            print(k, v, file=f)
-        
 
-    with open('encryptedIMG.pbm', 'w') as f:
-        f.write(f'P4\n{newLen}\n{newLen}\n')
-        for line in range(newLen):
-            for col in range(newLen):
-                if i < len(for_bob):
-                    print(for_bob[i], end=' ', file=f)
-                    i+=1
-                else:
-                    i=0
-                    print(for_bob[i], end=' ', file=f)
-            print(file=f)
+with open('encryptedIMG.pbm', 'w') as f:
+    f.write(f'P4\n{newLen}\n{newLen}\n')
+    for line in range(newLen):
+        for col in range(newLen):
+            if i < len(for_bob):
+                print(for_bob[i], end=' ', file=f)
+                i+=1
+            else:
+                i=0
+                print(for_bob[i], end=' ', file=f)
+        print(file=f)
