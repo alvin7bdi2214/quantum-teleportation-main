@@ -39,7 +39,7 @@ for i in range(p):
 #     found = False
 #     while found == False:
 #         x = random.choice(list(equal_to))
-#         # print(x)
+#         print(x)
 
 #         if x == 'EPR':
 #             found = True
@@ -97,7 +97,7 @@ set_encrImPx = lambda p: round(math.sqrt(p))
 newLen = set_encrImPx(len(for_bob))
 
 
-print("random binary strings:", key1)
+print("image pixel data:", key1)
 print("bell states:", bell_state)
 print("encrypted strings:", for_bob)
 
