@@ -2,29 +2,18 @@ import random
 from PIL import Image
 import math
 
-equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #bell state
-
 file_path = r"lena256_bw.pbm"
+
+equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"} #bell state
 
 im = Image.open(file_path)
 imList = list(im.getdata(band=None))
 
-p = len(imList) #length of generated binary
+p = len(imList)
 
 cnv = lambda c: math.trunc(c/255) #convert 0 and 255 to 0 and 1
 
 key1 = list(map(cnv, imList))
-
-# g = ((x, y) for x in range(im.size[0]) for y in range(im.size[1]))
-# lg = list(g)
-# lg_px = [im.getpixel((l)) for l in lg]
-# key1 = [cnv(lg) for lg in lg_px]
-
-
-# key1 = [] #list of generated binary 
-# for i in range(p): 
-# 	temp = random.randint(0,1)
-# 	key1.append(temp) 
 
 bell_state = [] #list of random sample_letters
 for i in range(p):
@@ -35,14 +24,15 @@ for i in range(p):
         if attempt == 'EPR':
             break
 
-# for i in range(im.size[0]*im.size[1]):
-#     found = False
-#     while found == False:
-#         x = random.choice(list(equal_to))
-#         print(x)
+#generating random bell states without appending to empty list
+"""for i in range(im.size[0]*im.size[1]):
+   found = False
+    while found == False:
+        x = random.choice(list(equal_to))
+        print(x)
 
-#         if x == 'EPR':
-#             found = True
+        if x == 'EPR':
+            found = True"""
 
 #evaluate result of alice binary and bell state
 def eva(alice, bell):
@@ -70,28 +60,17 @@ for k in key1:
             _tmp = _tmp[1:]
             break
 
-# def list_rect(li, dim1, dim2):
-#     i=0
-#     for line in range(dim2):
-#         for col in range(dim1):
-#             if i<len(li):
-#                 print(li[i],end=' ')
-#                 i+=1
-#             else:
-#                 i=0
-#                 print(li[i],end=' ')
-#         print()
+#transform list as num times nested list
+"""def chunkIt(seq, num): 
+    avg = len(seq) / float(num)
+    out = []
+    last = 0.0
 
-# def chunkIt(seq, num): #function to transform list as num times nested list
-#     avg = len(seq) / float(num)
-#     out = []
-#     last = 0.0
+    while last < len(seq):
+        out.append(seq[int(last):int(last + avg)])
+        last += avg
 
-#     while last < len(seq):
-#         out.append(seq[int(last):int(last + avg)])
-#         last += avg
-
-#     return out
+    return out"""
 
 set_encrImPx = lambda p: round(math.sqrt(p))
 newLen = set_encrImPx(len(for_bob))
