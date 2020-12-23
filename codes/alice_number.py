@@ -43,7 +43,6 @@ for i in alice_bits:
             break
 
 
-
 print(alice_bits)
 print(dict((i,e) for i,e in enumerate(bell_state)), len(bell_state))
 print(str(encrypted_bits).replace(',', ''), len(encrypted_bits))

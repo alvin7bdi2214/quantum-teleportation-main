@@ -75,10 +75,10 @@ for k in key1:
 set_encrImPx = lambda p: round(math.sqrt(p))
 newLen = set_encrImPx(len(for_bob))
 
-
-print("image pixel data:", key1)
-print("bell states:", bell_state)
-print("encrypted strings:", for_bob)
+if __name__ == "__main__":
+    print("image pixel data:", key1)
+    print("bell states:", bell_state)
+    print("encrypted strings:", for_bob)
 
 with open('shared_key/for_bob.txt', 'w') as f:
     print("random binary strings:\n{}\n".format(key1), file=f)
