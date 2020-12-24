@@ -1,4 +1,4 @@
-from alice_number import *
+from alice_number import bell_state, encrypted_bits
 from operator import itemgetter
 
 epr_index = [i for i,e in enumerate(bell_state) if e == 'EPR']

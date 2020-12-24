@@ -24,16 +24,6 @@ for i in range(p):
         if attempt == 'EPR':
             break
 
-#generating random bell states without appending to empty list
-"""for i in range(im.size[0]*im.size[1]):
-   found = False
-    while found == False:
-        x = random.choice(list(equal_to))
-        print(x)
-
-        if x == 'EPR':
-            found = True"""
-
 #evaluate result of alice binary and bell state
 def eva(alice, bell):
     if alice == 1:
@@ -59,18 +49,6 @@ for k in key1:
             for_bob.append(eva(k, *_tmp[:1]))
             _tmp = _tmp[1:]
             break
-
-#transform list as num times nested list
-"""def chunkIt(seq, num): 
-    avg = len(seq) / float(num)
-    out = []
-    last = 0.0
-
-    while last < len(seq):
-        out.append(seq[int(last):int(last + avg)])
-        last += avg
-
-    return out"""
 
 set_encrImPx = lambda p: round(math.sqrt(p))
 newLen = set_encrImPx(len(for_bob))

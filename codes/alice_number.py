@@ -3,14 +3,18 @@ import numpy as np
 from numpy.random import randint
 
 equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"}
+amount_of_bit = 8
 
-np.random.seed()
-n = 8
+def alice_bits(n):
+    np.random.seed()
+    _alice_bits = randint(2, size=n)
+    return _alice_bits
 
-alice_bits = randint(2, size=n)
+alice_bits = alice_bits(amount_of_bit)
 
 bell_state = []
-for i in range(n):
+
+for i in range(amount_of_bit):
     while True:
         attempt = str(random.choice(list(equal_to)))
         bell_state.append(attempt)
@@ -31,6 +35,7 @@ def eva(alice, bell):
             return 0
 
 encrypted_bits = []
+
 _tmp = bell_state[:]
 for i in alice_bits:
     while _tmp:
@@ -42,7 +47,7 @@ for i in alice_bits:
             _tmp = _tmp[1:]
             break
 
-
-print(alice_bits)
-print(dict((i,e) for i,e in enumerate(bell_state)), len(bell_state))
-print(str(encrypted_bits).replace(',', ''), len(encrypted_bits))
+if __name__ == "__main__":
+    print(alice_bits)
+    print(dict((i,e) for i,e in enumerate(bell_state)), len(bell_state))
+    print(str(encrypted_bits).replace(',', ''), len(encrypted_bits))
