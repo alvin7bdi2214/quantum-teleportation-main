@@ -1,6 +1,7 @@
 import random
 import numpy as np
 from numpy.random import randint
+import datetime
 
 equal_to = {"upl":"u_plus", "EPR":"u_minus", "vpl":"v_plus", "vmin":"v_minus"}
 amount_of_bit = 8
@@ -48,6 +49,13 @@ for i in alice_bits:
             break
 
 if __name__ == "__main__":
-    print(alice_bits)
-    print(dict((i,e) for i,e in enumerate(bell_state)), len(bell_state))
-    print(str(encrypted_bits).replace(',', ''), len(encrypted_bits))
+    with open('alice_number.txt', 'w') as a:
+        print("Alice's numbers:", alice_bits, file=a)
+        print("Encrypted Alice numbers:", str(encrypted_bits).replace(',', ''), file=a)
+        print(f"\ngenerated on: {datetime.datetime.now()}", file=a)
+
+    with open('key_numbers.txt', 'w') as k:
+        print(f"encryption keys ({len(bell_state)} chars):\n", file=k)
+        for i,e in enumerate(bell_state):
+            print(i, e, file=k)
+        print(f"\ngenerated on: {datetime.datetime.now()}", file=k)
