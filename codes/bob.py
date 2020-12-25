@@ -3,7 +3,6 @@ from operator import itemgetter
 import math
 from PIL import Image
 
-
 epr_idx = [idx for idx, element in enumerate(bell_state) if element == 'EPR']
 
 finalResult = list(itemgetter(*epr_idx)(for_bob))

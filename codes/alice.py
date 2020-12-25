@@ -58,10 +58,10 @@ if __name__ == "__main__":
     print("bell states:", bell_state)
     print("encrypted strings:", for_bob)
 
-with open('shared_key/for_bob.txt', 'w') as f:
+with open('shared_key/image_pixel_value.txt', 'w') as f:
     print("random binary strings:\n{}\n".format(key1), file=f)
 
-with open('shared_key/key.txt', 'w') as f:
+with open('shared_key/key_image.txt', 'w') as f:
     print("random bell states ({:,} characters):\n".format(len(bell_state)), file=f)
     for k,v in enumerate(bell_state):
         print(k, v, file=f)
