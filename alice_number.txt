@@ -1,0 +1,4 @@
+Alice's numbers: [1 0 1 1 0 0 1 1]
+Encrypted Alice numbers: [1 0 1 1 1 1 1 1 1 1 0 1 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 1 0 1 0 1 0 0 1 0 0 1 0 0 0 0 0 1]
+
+generated on: 2020-12-25 17:52:02.835134
