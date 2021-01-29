@@ -48,6 +48,11 @@ for i in alice_bits:
             _tmp = _tmp[1:]
             break
 
+print("Alice's numbers:", alice_bits)
+for i,e in enumerate(bell_state):
+    print(i, e)
+print("Encrypted Alice numbers:", str(encrypted_bits).replace(',', ''))
+
 if __name__ == "__main__":
     with open('alice_number.txt', 'w') as a:
         print("Alice's numbers:", alice_bits, file=a)
